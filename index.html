@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>For Akshu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen">
+
+    <!-- Countdown Page -->
+    <div class="main-container page text-center bg-pink-50 flex items-center justify-center min-h-screen"
+        id="countdownPage">
+        <div>
+            <h1 class="text-4xl font-extrabold mb-4 animate-pulse">Are You Ready? 🎉</h1>
+            <p class="text-2xl mb-4">Something special is coming in...</p>
+            <div id="countdownNumber" class="text-6xl font-bold text-pink-400">3</div>
+            <p class="mt-6 text-lg font-medium text-center text-gray-700 px-4">
+                Hold your breath and smile wide —<br>
+                because a little surprise made just for you<br>
+                is about to light up your screen and your heart! 💖<br>
+                Get ready for the feels! 🥹🎁✨
+            </p>
+        </div>
+    </div>
+
+    <!-- Message Page -->
+    <div class="main-container page text-center hidden min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-pink-100 via-pink-200 to-purple-100"
+        id="messagePage">
+        <div class="bg-white bg-opacity-90 p-8 rounded-2xl shadow-xl max-w-xl mx-auto mb-6">
+            <h2 class="text-3xl font-bold mb-4 text-pink-600">Hey Aksh-u sunshine ☀️</h2>
+            <p class="text-lg text-gray-800 leading-relaxed mb-2">
+                With you, the days just zoom right by! ⏳<br>
+                From goofy chats to no snack attacks till now 😕,<br>
+                You're the calm to my chaos — no take-backs! ⚡
+            </p>
+            <p class="text-lg text-gray-800 leading-relaxed mb-2 mt-4">
+                You're my happy place to whom I want to be extra-close 💞<br>
+                And praying hard for that🧿
+            </p>
+            <p class="text-lg text-gray-800 leading-relaxed mt-4">
+                So here’s a hug 🫂 wrapped in rhyme,<br>
+                To remind you — you’re my favorite, every time! 🫶
+            </p>
+        </div>
+        <button id="nextBtn"
+            class="mt-4 px-6 py-2 bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-md transition">
+            Click for a Little More 💫
+        </button>
+    </div>
+
+    <!-- Third Page -->
+    <div class="main-container page hidden min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-200 via-pink-100 to-yellow-100"
+        id="wishPage">
+        <div class="bg-white bg-opacity-90 p-8 rounded-2xl shadow-xl max-w-xl text-center">
+            <h2 class="text-3xl font-bold text-purple-600 mb-4">A Little Wish Just for You 💌</h2>
+            <p class="text-lg text-gray-800 leading-relaxed">
+                May your days be filled with giggles, love, and peace ☁️<br>
+                May every little moment bring you calm and sweet release 💗<br><br>
+                You’re the kind of magic the world needs more of ✨<br>
+                So just by being you — you already glow with love 💕<br><br>
+                Happy heart moments, Akshu. Always rooting for your smile! 🌸
+            </p>
+            <div class="mt-6">
+                <p class="text-md text-gray-700 mb-4 italic">Hope this made you smile 😊</p>
+                <button onclick="replaySurprise()"
+                    class="px-5 py-2 bg-purple-500 hover:bg-purple-600 text-white rounded-full shadow-md transition">
+                    Replay Surprise 🔁
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        let countdown = 3;
+        const countdownEl = document.getElementById('countdownNumber');
+        const countdownPage = document.getElementById('countdownPage');
+        const messagePage = document.getElementById('messagePage');
+        const wishPage = document.getElementById('wishPage');
+        const nextBtn = document.getElementById('nextBtn');
+
+        const timer = setInterval(() => {
+            countdown--;
+            if (countdown > 0) {
+                countdownEl.textContent = countdown;
+            } else {
+                clearInterval(timer);
+                countdownEl.textContent = "🎉";
+                setTimeout(() => {
+                    countdownPage.classList.add('hidden');
+                    messagePage.classList.remove('hidden');
+                }, 1000);
+            }
+        }, 1000);
+
+        nextBtn.addEventListener('click', () => {
+            messagePage.classList.add('hidden');
+            wishPage.classList.remove('hidden');
+        });
+
+        function replaySurprise() {
+            wishPage.classList.add('hidden');
+            countdownPage.classList.remove('hidden');
+            countdown = 3;
+            countdownEl.textContent = countdown;
+
+            const timer = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    countdownEl.textContent = countdown;
+                } else {
+                    clearInterval(timer);
+                    countdownEl.textContent = "🎉";
+                    setTimeout(() => {
+                        countdownPage.classList.add('hidden');
+                        messagePage.classList.remove('hidden');
+                    }, 1000);
+                }
+            }, 1000);
+        }
+    </script>
+
+</body>
+
+</html>
